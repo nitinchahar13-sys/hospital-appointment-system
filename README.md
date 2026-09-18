@@ -281,38 +281,6 @@ mvnw.cmd clean javafx:run
 ./mvnw clean javafx:run
 ```
 
-## 🖥️ Application Interface
-
-The application includes a JavaFX graphical interface with multiple screens and dashboards.
-
-### Main Menu
-
-![Main Menu](images/mainmenu.png)
-
-### Dashboard
-
-![Dashboard](images/dashboard.png)
-
-### Doctor Dashboard
-
-![Doctor Menu](images/doctormenu.png)
-
-### Mode Selection
-
-![Mode Selector](images/modeselector.png)
-
-### Dark Mode
-
-![Dark Mode](images/darkmode.png)
-
-### Appointment Management
-
-![Appointment](images/appointment.png)
-
-### Command-Line Interface
-
-![Console](images/console.png)
-
 ## 🔄 Application Flow
 
 ```text
