@@ -1,77 +1,84 @@
-# ⚡ 2 Dakikada Test Çalıştırma
+# ⚡ Run Tests in 2 Minutes
 
-## 🎯 Adım Adım Rehber
+## 🎯 Step-by-Step Guide
 
-### 📥 **Adım 1: IntelliJ IDEA İndirin (2 dk)**
+### 📥 Step 1: Download IntelliJ IDEA (2 min)
 
-1. Tarayıcınızda şu adresi açın:
-   ```
+1. Open the following website in your browser:
+
    https://www.jetbrains.com/idea/download/
-   ```
 
-2. **Community Edition** (ÜCRETSİZ) butonuna tıklayın
+2. Click the **Community Edition (FREE)** button.
 
-3. İndirme tamamlanınca kurulum dosyasını çalıştırın
+3. After the download is complete, run the installation file.
 
-4. Kurulum sırasında:
-   - ✅ "Add to PATH" işaretleyin
-   - ✅ ".java files" ile ilişkilendir
-   - ✅ Varsayılan ayarlarla devam edin
+4. During installation:
+   - ✅ Select **"Add to PATH"**
+   - ✅ Select **"Associate .java files"**
+   - ✅ Continue with the default settings
 
 ---
 
-### 📂 **Adım 2: Projeyi Açın (30 sn)**
+## 📂 Step 2: Open the Project (30 sec)
 
-1. IntelliJ IDEA'yı başlatın
+1. Start **IntelliJ IDEA**.
 
-2. **"Open"** butonuna tıklayın
+2. Click the **"Open"** button.
 
-3. Şu klasörü seçin:
-   ```
+3. Select the following folder:
+
+   ```text
    C:\Users\Ahmet Furkan\Desktop\hospital-appointment-system-java
    ```
 
-4. **"Trust Project"** diyaloğunda **"Trust Project"** seçin
+4. When the **"Trust Project"** dialog appears, select **"Trust Project"**.
 
-5. Bekleyin... IntelliJ otomatik olarak:
-   - ✅ Maven'i tanıyacak
-   - ✅ pom.xml'i okuyacak
-   - ✅ JUnit'i indirecek
-   - ✅ Projeyi build edecek
-   
-   (Sağ altta progress bar göreceksiniz - bitsin)
+5. Wait for IntelliJ IDEA to load the project.
+
+   IntelliJ will automatically:
+
+   - ✅ Detect Maven
+   - ✅ Read `pom.xml`
+   - ✅ Download JUnit
+   - ✅ Build the project
+
+   You will see a progress bar in the bottom-right corner. Wait until it finishes.
 
 ---
 
-### 🧪 **Adım 3: Test Çalıştırın (10 sn)**
+## 🧪 Step 3: Run the Test (10 sec)
 
-1. Sol taraftaki **Project** panelinde şu yolu açın:
-   ```
+1. In the **Project** panel on the left, open:
+
+   ```text
    src → test → java → mertguler → Person
    ```
 
-2. **PersonTest.java** dosyasına **ÇİFT TIKLAYIN**
+2. **Double-click** the `PersonTest.java` file.
 
-3. Dosya açıldığında, **SOL tarafta** yeşil play ikonları (▶️) göreceksiniz
+3. When the file opens, you will see green **Play (▶️)** icons on the left side.
 
-4. **Sınıf adının yanındaki** yeşil play'e tıklayın
+4. Click the green Play icon next to the **class name**.
 
-5. **"Run 'PersonTest'"** seçeneğine tıklayın
+5. Select:
 
-6. 🎉 **SONUÇ:** Alt tarafta test sonuçları görünecek!
-   ```
+   **"Run 'PersonTest'"**
+
+6. 🎉 **Result:** The test results will appear at the bottom.
+
+   ```text
    ✅ Tests passed: 15 of 15 tests
    ```
 
 ---
 
-## 🎥 **Görsel Rehber**
+## 🎥 Visual Guide
 
-### Şöyle görünecek:
+### This is what it will look like:
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
-│ IntelliJ IDEA                          [- □ X] │
+│ IntelliJ IDEA                          [- □ X]   │
 ├──────────┬──────────────────────────────────────┤
 │ Project  │ PersonTest.java                      │
 │          │                                       │
@@ -82,8 +89,8 @@
 │         ▶ CRS   │ public class PersonTest {     │
 │         ▶ Hospital│   @Test                     │
 │         ▶ Person  │   public void testPerson()  │
-│           ▶ PersonTest.java  ◀── BURAYA ÇİFT TIK│
-│         ▶ Exceptions│   }                        │
+│           ▶ PersonTest.java  ◀── DOUBLE-CLICK    │
+│         ▶ Exceptions│   }                       │
 │                   │ }                            │
 ├───────────────────┴──────────────────────────────┤
 │ ▶️ Run: PersonTest                               │
@@ -97,124 +104,181 @@
 
 ---
 
-## 🚀 **Alternatif: Tüm Testleri Çalıştır**
+## 🚀 Alternative: Run All Tests
 
-1. Sol panelde **`src/test/java`** klasörüne **SAĞ TIK**
+1. In the left panel, **right-click** the:
 
-2. **"Run 'All Tests'"** seçin
-
-3. Tüm 325+ test çalışacak!
+   ```text
+   src/test/java
    ```
+
+   folder.
+
+2. Select:
+
+   **"Run 'All Tests'"**
+
+3. All 325+ tests will run.
+
+   Example:
+
+   ```text
    ✅ PersonTest: 15 passed
    ✅ PatientTest: 20 passed
    ✅ DoctorTest: 25 passed
    ✅ HospitalTest: 35 passed
-   ... (devamı)
-   
+   ... (more tests)
+
    Total: 325 tests passed in 8.5s
    ```
 
 ---
 
-## ❓ **Neden IntelliJ?**
+## ❓ Why IntelliJ IDEA?
 
-### ✅ **Otomatik Hallediyor:**
-- ✅ Maven'i tanıyor
-- ✅ JUnit'i indiriyor
-- ✅ Projeyi compile ediyor
-- ✅ Classpath'i ayarlıyor
-- ✅ Testleri çalıştırıyor
+### ✅ It Handles Everything Automatically
 
-### 🆚 **Manuel Yöntem vs IntelliJ:**
+- ✅ Detects Maven
+- ✅ Downloads JUnit
+- ✅ Compiles the project
+- ✅ Configures the classpath
+- ✅ Runs the tests
 
-| Özellik | Manuel (javac) | IntelliJ IDEA |
-|---------|---------------|---------------|
-| Kurulum | JUnit manuel indir | Otomatik |
-| Build | javac komutları | Tek tık |
-| Classpath | Manuel ayarla | Otomatik |
-| Test Çalıştır | java komutları | Tek tık ▶️ |
-| Süre | ~30 dakika | ~2 dakika |
-| Zorluk | 😫😫😫 | 😊 |
+### 🆚 Manual Method vs IntelliJ IDEA
 
----
-
-## 🔄 **Sorun mu Yaşadınız?**
-
-### Problem 1: Maven indirmiyor
-**Çözüm:**
-1. Sağ altta **"Import"** veya **"Load Maven Changes"** butonuna tıklayın
-2. Veya: `File → Invalidate Caches → Restart`
-
-### Problem 2: Test dosyaları tanınmıyor
-**Çözüm:**
-1. `src/test/java` klasörüne **SAĞ TIK**
-2. **"Mark Directory as → Test Sources Root"** seçin
-
-### Problem 3: JUnit bulunamıyor
-**Çözüm:**
-1. `View → Tool Windows → Maven`
-2. Yenile (🔄) ikonuna tıklayın
-3. `Lifecycle → clean` sonra `Lifecycle → install` çalıştırın
+| Feature | Manual (`javac`) | IntelliJ IDEA |
+|---|---|---|
+| Installation | Download JUnit manually | Automatic |
+| Build | Use `javac` commands | One click |
+| Classpath | Configure manually | Automatic |
+| Run Tests | Use `java` commands | One click ▶️ |
+| Time | ~30 minutes | ~2 minutes |
+| Difficulty | 😫😫😫 | 😊 |
 
 ---
 
-## 🎓 **Bonus: Klavye Kısayolları**
+## 🔄 Having Problems?
 
-- `Ctrl + Shift + F10` → Test çalıştır
-- `Shift + F10` → Son testi tekrar çalıştır
+### Problem 1: Maven Is Not Downloading
+
+**Solution:**
+
+1. Click **"Import"** or **"Load Maven Changes"** in the bottom-right corner.
+
+2. Or go to:
+
+   **File → Invalidate Caches → Restart**
+
+---
+
+### Problem 2: Test Files Are Not Recognized
+
+**Solution:**
+
+1. Right-click the:
+
+   ```text
+   src/test/java
+   ```
+
+   folder.
+
+2. Select:
+
+   **Mark Directory as → Test Sources Root**
+
+---
+
+### Problem 3: JUnit Cannot Be Found
+
+**Solution:**
+
+1. Go to:
+
+   **View → Tool Windows → Maven**
+
+2. Click the **Refresh (🔄)** icon.
+
+3. Run:
+
+   **Lifecycle → clean**
+
+4. Then run:
+
+   **Lifecycle → install**
+
+---
+
+## 🎓 Bonus: Keyboard Shortcuts
+
+- `Ctrl + Shift + F10` → Run the test
+- `Shift + F10` → Run the last test again
 - `Ctrl + Shift + F9` → Debug mode
-- `Ctrl + F5` → Testi yeniden çalıştır
+- `Ctrl + F5` → Rerun the test
 
 ---
 
-## ✅ **Başarı Kontrol Listesi**
+## ✅ Success Checklist
 
-Testler çalıştıysa şunu görmelisiniz:
+When the tests have run successfully, you should see:
 
-```
-✅ Yeşil check mark'lar
+```text
+✅ Green check marks
 ✅ "Tests passed: X of X"
-✅ Alt tarafta yeşil bar
-✅ Hiç kırmızı hata yok
+✅ Green bar at the bottom
+✅ No red errors
 ```
 
 ---
 
-## 📞 **Hala Sorun mu Var?**
+## 📞 Still Having Problems?
 
-IntelliJ IDEA'da sorun yaşarsanız:
+If you are still having problems in IntelliJ IDEA:
 
-1. **Önce şunu deneyin:**
-   ```
-   File → Invalidate Caches → Restart
-   ```
+### 1. Try this first
 
-2. **Maven'i yeniden yükleyin:**
-   - Maven panelini açın (sağ taraf)
-   - 🔄 Reload butonuna tıklayın
+Go to:
 
-3. **JDK'yı kontrol edin:**
-   ```
-   File → Project Structure → Project
-   SDK: Java 21 olmalı
-   ```
+```text
+File → Invalidate Caches → Restart
+```
+
+### 2. Reload Maven
+
+- Open the Maven panel on the right side.
+- Click the **🔄 Reload** button.
+
+### 3. Check the JDK
+
+Go to:
+
+```text
+File → Project Structure → Project
+```
+
+Make sure:
+
+```text
+SDK: Java 21
+```
 
 ---
 
-## 🎉 **Başardınız mı?**
+## 🎉 Are You Done?
 
-İlk test çalıştığında:
-- ✅ Test yazmayı öğrendiniz
-- ✅ JUnit kullanmayı öğrendiniz
-- ✅ Maven projesini anladınız
-- ✅ Modern IDE kullanmaya başladınız
+When the first test runs successfully, you have:
 
-**Tebrikler! 🎊**
+- ✅ Learned how to run tests
+- ✅ Learned how to use JUnit
+- ✅ Understood how a Maven project works
+- ✅ Started using a modern Java IDE
+
+**Congratulations! 🎊**
 
 ---
 
-**Not:** Bu rehber yeni başlayanlar için yazılmıştır. 
-IntelliJ IDEA, Java geliştirme için en popüler IDE'lerden biridir.
+**Note:** This guide is written for beginners.
 
-**İyi kodlamalar! 💻**
+IntelliJ IDEA is one of the most popular IDEs for Java development.
 
+**Happy Coding! 💻**
