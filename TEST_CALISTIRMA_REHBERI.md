@@ -1,154 +1,252 @@
-# 🧪 Test Çalıştırma Rehberi
+# 🧪 Test Running Guide
 
-## ⚠️ Önemli Not
+## ⚠️ Important Note
 
-Test dosyaları **Maven projesi** için yazılmıştır. Doğrudan `javac` ile compile edilemez çünkü:
+The test files are written for a **Maven project**. They cannot be compiled directly using `javac` because:
 
-1. ❌ Ana proje kodları classpath'te olmalı
-2. ❌ JUnit kütüphanesi gerekli
-3. ❌ Tüm dependency'ler classpath'e eklenmiş olmalı
-
-## ✅ Önerilen Yöntemler
-
-### 🥇 **Yöntem 1: IntelliJ IDEA (EN KOLAY - ÖNERİLİR)**
-
-#### Adımlar:
-1. **Projeyi Aç**
-   - IntelliJ IDEA'yı açın
-   - `File → Open → hospital-appointment-system-java` klasörünü seçin
-   - `pom.xml` dosyasını Maven projesi olarak açın
-
-2. **Maven Dependencies'i İndir**
-   - IntelliJ otomatik olarak Maven dependency'lerini indirecektir
-   - Veya sağ üst köşede "Load Maven Changes" butonuna tıklayın
-
-3. **Testleri Çalıştır**
-   - Sol taraftaki proje ağacında `src/test/java` klasörünü açın
-   - Herhangi bir test sınıfına sağ tıklayın (örn: `PersonTest.java`)
-   - **"Run 'PersonTest'"** seçeneğine tıklayın
-   
-4. **Tüm Testleri Çalıştır**
-   - `src/test/java` klasörüne sağ tıklayın
-   - **"Run 'All Tests'"** seçin
-
-#### Video Rehber:
-[IntelliJ IDEA ile JUnit Testleri Çalıştırma](https://www.jetbrains.com/help/idea/performing-tests.html)
+1. ❌ The main project code must be available in the classpath.
+2. ❌ The JUnit library is required.
+3. ❌ All dependencies must be added to the classpath.
 
 ---
 
-### 🥈 **Yöntem 2: Eclipse IDE**
+# ✅ Recommended Methods
 
-#### Adımlar:
-1. **Projeyi İçe Aktar**
-   - `File → Import → Existing Maven Projects`
-   - Proje klasörünü seçin
-   - `Finish` butonuna tıklayın
+## 🥇 Method 1: IntelliJ IDEA (EASIEST - RECOMMENDED)
 
-2. **Maven Update**
-   - Projeye sağ tıklayın
-   - `Maven → Update Project` seçin
-   - `Force Update of Snapshots/Releases` işaretleyin
-   - `OK` tıklayın
+### Steps
 
-3. **Testleri Çalıştır**
-   - Test dosyasına sağ tıklayın
-   - **Run As → JUnit Test** seçin
+### 1. Open the Project
+
+- Open IntelliJ IDEA.
+- Go to:
+
+  **File → Open**
+
+- Select the `hospital-appointment-system-java` project folder.
+- Open the `pom.xml` file as a Maven project.
+
+### 2. Download Maven Dependencies
+
+- IntelliJ IDEA will automatically download the Maven dependencies.
+- If necessary, click **"Load Maven Changes"** in the top-right corner.
+
+### 3. Run the Tests
+
+- Open the following folder in the project tree:
+
+  ```text
+  src/test/java
+  ```
+
+- Right-click any test class, for example:
+
+  ```text
+  PersonTest.java
+  ```
+
+- Select:
+
+  **Run 'PersonTest'**
+
+### 4. Run All Tests
+
+- Right-click the:
+
+  ```text
+  src/test/java
+  ```
+
+  folder.
+
+- Select:
+
+  **Run 'All Tests'**
+
+### Video Guide
+
+[IntelliJ IDEA - Running JUnit Tests](https://www.jetbrains.com/help/idea/performing-tests.html)
 
 ---
 
-### 🥉 **Yöntem 3: Maven Komut Satırı**
+# 🥈 Method 2: Eclipse IDE
 
-#### Maven Kurulumu:
+### Steps
 
-**Windows (Chocolatey ile):**
+### 1. Import the Project
+
+- Go to:
+
+  **File → Import → Existing Maven Projects**
+
+- Select the project folder.
+- Click **Finish**.
+
+### 2. Update Maven
+
+- Right-click the project.
+- Select:
+
+  **Maven → Update Project**
+
+- Check:
+
+  **Force Update of Snapshots/Releases**
+
+- Click **OK**.
+
+### 3. Run the Tests
+
+- Right-click the test file.
+- Select:
+
+  **Run As → JUnit Test**
+
+---
+
+# 🥉 Method 3: Maven Command Line
+
+## Maven Installation
+
+### Windows (Using Chocolatey)
+
+If Chocolatey is not installed, install it first:
+
 ```powershell
-# Chocolatey kurulu değilse önce onu kurun
 Set-ExecutionPolicy Bypass -Scope Process -Force; 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
 
-# Maven'i kurun
+Then install Maven:
+
+```powershell
 choco install maven
 ```
 
-**Manuel Kurulum:**
-1. https://maven.apache.org/download.cgi adresinden indirin
-2. ZIP dosyasını açın (örn: `C:\Program Files\Apache\maven`)
-3. Sistem PATH değişkenine ekleyin: `C:\Program Files\Apache\maven\bin`
-4. Yeni bir terminal açın ve test edin: `mvn --version`
+### Manual Installation
 
-#### Maven ile Test Çalıştırma:
+1. Download Maven from:
+
+   https://maven.apache.org/download.cgi
+
+2. Extract the ZIP file, for example:
+
+   ```text
+   C:\Program Files\Apache\maven
+   ```
+
+3. Add the following directory to the system `PATH`:
+
+   ```text
+   C:\Program Files\Apache\maven\bin
+   ```
+
+4. Open a new terminal and verify the installation:
+
+   ```powershell
+   mvn --version
+   ```
+
+---
+
+## Run Tests Using Maven
+
+### Go to the Project Directory
 
 ```powershell
-# Proje klasörüne gidin
 cd "C:\Users\Ahmet Furkan\Desktop\hospital-appointment-system-java"
+```
 
-# Tüm testleri çalıştır
+### Run All Tests
+
+```powershell
 mvn test
+```
 
-# Belirli bir test sınıfını çalıştır
+### Run a Specific Test Class
+
+```powershell
 mvn test -Dtest=PersonTest
+```
 
-# Belirli bir test metodunu çalıştır
+### Run a Specific Test Method
+
+```powershell
 mvn test -Dtest=PersonTest#testPersonCreation
+```
 
-# Verbose output ile
+### Run with Verbose Output
+
+```powershell
 mvn test -X
 ```
 
-#### Beklenen Çıktı:
-```
+### Expected Output
+
+```text
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
+
 [INFO] Running mertguler.Person.PersonTest
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
+
 [INFO] Running mertguler.Person.PatientTest
 [INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
+
 ...
+
 [INFO] BUILD SUCCESS
 ```
 
 ---
 
-### 🔧 **Yöntem 4: VS Code**
+# 🔧 Method 4: VS Code
 
-#### Gereksinimler:
-1. **Extension'ları Kurun:**
-   - Extension Pack for Java
-   - Maven for Java
-   - Test Runner for Java
+## Requirements
 
-#### Adımlar:
-1. Projeyi VS Code'da açın
-2. Sol taraftaki "Testing" ikonuna tıklayın (beaker icon)
-3. Test dosyalarını görün ve çalıştırın
-4. Veya test dosyasını açın ve üstte görünen "Run Test" butonuna tıklayın
+Install the following extensions:
+
+1. **Extension Pack for Java**
+2. **Maven for Java**
+3. **Test Runner for Java**
+
+## Steps
+
+1. Open the project in VS Code.
+2. Click the **Testing** icon (beaker icon) on the left.
+3. View the test files.
+4. Run the required tests.
+
+Alternatively, open a test file and click the **"Run Test"** button displayed at the top.
 
 ---
 
-## 🚫 **Yapmayın:**
+# 🚫 Do Not Do This
 
-### ❌ Doğrudan javac ile Compile Etmeyin
+## ❌ Do Not Compile Directly Using `javac`
 
 ```powershell
-# BU ÇALIŞMAZ!
+# THIS WILL NOT WORK!
 javac CRSTest.java
 java CRSTest
 ```
 
-**Neden?**
-- Ana proje kodları compile edilmemiş
-- JUnit kütüphanesi yok
-- Classpath ayarları eksik
-- Module system konfigürasyonu gerekli
+### Why?
+
+- The main project code has not been compiled.
+- The JUnit library is not available.
+- Classpath settings are missing.
+- The module system configuration is required.
 
 ---
 
-## 📊 **Test Sonuçları Nasıl Görünür?**
+# 📊 What Do the Test Results Look Like?
 
-### IntelliJ IDEA:
-```
+## IntelliJ IDEA
+
+```text
 ✓ PersonTest
   ✓ testPersonCreation (12ms)
   ✓ testGetName (3ms)
@@ -158,9 +256,10 @@ java CRSTest
 Tests passed: 15 of 15 tests - 150ms
 ```
 
-### Maven:
-```
-Results :
+## Maven
+
+```text
+Results:
 
 Tests run: 325, Failures: 0, Errors: 0, Skipped: 0
 
@@ -170,79 +269,143 @@ Tests run: 325, Failures: 0, Errors: 0, Skipped: 0
 
 ---
 
-## 🐛 **Sorun Giderme**
+# 🐛 Troubleshooting
 
-### Problem: "Module not found" hatası
-**Çözüm:** 
-- IntelliJ'de: `File → Project Structure → Modules → Dependencies` kontrol edin
-- Maven'de: `mvn clean install` çalıştırın
+## Problem: "Module not found"
 
-### Problem: JUnit bulunamıyor
-**Çözüm:**
-- Maven dependency'lerini yeniden indirin
-- IntelliJ'de "Reload Maven Project" tıklayın
-- `pom.xml` dosyasının doğru olduğundan emin olun
+### Solution
 
-### Problem: Test dosyaları tanınmıyor
-**Çözüm:**
-- `src/test/java` klasörünün "Test Sources Root" olarak işaretlendiğinden emin olun
-- IntelliJ'de klasöre sağ tık → "Mark Directory as → Test Sources Root"
+**In IntelliJ IDEA:**
 
-### Problem: Compile hatası
-**Çözüm:**
+Go to:
+
+```text
+File → Project Structure → Modules → Dependencies
+```
+
+Check the project dependencies.
+
+**Using Maven:**
+
+Run:
+
 ```powershell
-# Maven cache'i temizle
+mvn clean install
+```
+
+---
+
+## Problem: JUnit Cannot Be Found
+
+### Solution
+
+- Download the Maven dependencies again.
+- In IntelliJ IDEA, click **Reload Maven Project**.
+- Make sure the `pom.xml` file is correct.
+
+---
+
+## Problem: Test Files Are Not Recognized
+
+### Solution
+
+Make sure the following folder is marked as a **Test Sources Root**:
+
+```text
+src/test/java
+```
+
+In IntelliJ IDEA:
+
+```text
+Right-click src/test/java
+→ Mark Directory as
+→ Test Sources Root
+```
+
+---
+
+## Problem: Compile Error
+
+### Solution
+
+### Clean the Maven Cache
+
+```powershell
 mvn clean
+```
 
-# Dependency'leri yeniden indir
+### Download Dependencies Again
+
+```powershell
 mvn clean install -U
-
-# IDE'yi yeniden başlat
 ```
 
+### Restart the IDE
+
+Close and reopen IntelliJ IDEA or your preferred IDE.
+
 ---
 
-## 📝 **Hızlı Başlangıç - IntelliJ IDEA**
+# 📝 Quick Start - IntelliJ IDEA
 
+```text
+1. Open IntelliJ IDEA
+2. Select Open → Choose the project folder
+3. Maven will load automatically (wait for it to finish)
+4. Open src/test/java/mertguler/Person/PersonTest.java
+5. Click the green Play button ▶️
+6. View the test results ✅
 ```
-1. IntelliJ IDEA'yı Aç
-2. Open → Proje klasörünü seç
-3. Maven otomatik olarak yüklenecek (biraz bekleyin)
-4. src/test/java/mertguler/Person/PersonTest.java dosyasını aç
-5. Yeşil play butonuna tıkla ▶️
-6. Test sonuçlarını gör ✅
-```
 
-**İşte bu kadar!** ✨
+**That's it! ✨**
 
 ---
 
-## 💡 **İpuçları**
+# 💡 Tips
 
-✅ **En kolay yol:** IntelliJ IDEA Community Edition (ücretsiz)
-- https://www.jetbrains.com/idea/download/
+### ✅ Easiest Option
 
-✅ **Test yazarken:**
-- Her testten sonra IDE'de otomatik çalıştır
-- Kırmızı/yeşil feedback döngüsü
-- Debug mode ile sorun giderin
+Use **IntelliJ IDEA Community Edition (Free)**:
 
-✅ **CI/CD için:**
-- GitHub Actions ile otomatik test
-- Maven ile build pipeline
+https://www.jetbrains.com/idea/download/
 
----
+### ✅ While Writing Tests
 
-## 📞 **Yardım**
+- Run the tests automatically after making changes.
+- Use the red/green feedback cycle.
+- Use **Debug mode** to find and fix problems.
 
-Sorun yaşarsanız:
-1. IDE'nin Maven/Gradle konsol loglarını kontrol edin
-2. `mvn --version` ile Maven kurulumunu doğrulayın
-3. JDK 21 kurulu olduğundan emin olun: `java -version`
+### ✅ For CI/CD
+
+You can use:
+
+- GitHub Actions for automatic testing.
+- Maven for the build pipeline.
 
 ---
 
-**Not:** Testler Maven standardına uygun yazılmıştır. Production ortamında kullanılabilir.
+# 📞 Help
 
-**İyi testler! 🚀**
+If you experience problems:
 
+1. Check the IDE's Maven/Gradle console logs.
+2. Verify Maven installation:
+
+   ```powershell
+   mvn --version
+   ```
+
+3. Make sure JDK 21 is installed:
+
+   ```powershell
+   java -version
+   ```
+
+---
+
+## ✅ Final Note
+
+The tests are written according to the **Maven standard** and can be used in a production development environment.
+
+**Happy Testing! 🚀**
