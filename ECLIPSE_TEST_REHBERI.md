@@ -1,376 +1,559 @@
-Guide to Running Tests with Eclipse
+# Guide to Running Tests with Eclipse
 
-🎯 How to Run Tests in Eclipse
+## 🎯 How to Run Tests in Eclipse
 
-There are 3 easy steps to run your tests in Eclipse!
+There are 3 easy steps to run your tests in Eclipse:
 
-📥 Step 1: Prepare Eclipse
+1. Prepare Eclipse
+2. Import the project
+3. Run the tests
 
-If Eclipse Is Not Installed:
+---
 
-Download Eclipse IDE for Java Developers:
-https://www.eclipse.org/downloads/
+## 📥 Step 1: Prepare Eclipse
 
-Click the "Download" button.
+### If Eclipse Is Not Installed
 
-Select your operating system (Windows x64).
+1. Download **Eclipse IDE for Java Developers**:
 
-Run the Eclipse Installer:
+   https://www.eclipse.org/downloads/
 
-Select "Eclipse IDE for Java Developers"
+2. Click the **Download** button.
 
-Choose the installation folder.
+3. Select your operating system:
+   - Windows x64
 
-Click "Install"
+4. Run the Eclipse Installer:
+   - Select **Eclipse IDE for Java Developers**
+   - Choose the installation folder
+   - Click **Install**
 
-📂 Step 2: Import the Project
+---
 
-1. Start Eclipse
+## 📂 Step 2: Import the Project
 
-Open Eclipse IDE.
+### 1. Start Eclipse
 
-2. Select a Workspace
+Open **Eclipse IDE**.
+
+### 2. Select a Workspace
 
 You can use the default workspace.
 
-Or use a workspace such as:
+Or choose a workspace such as:
+
+```text
 C:\Users\Ahmet Furkan\eclipse-workspace
+```
 
-3. Import the Maven Project
+### 3. Import the Maven Project
 
-Go to File → Import.
+Go to:
 
-Select Maven → Existing Maven Projects, then click Next.
+**File → Import**
 
-4. Select the Project Folder
+Then select:
 
-After clicking Next, click Browse and select the project folder:
+**Maven → Existing Maven Projects**
 
+Click **Next**.
+
+### 4. Select the Project Folder
+
+After clicking **Next**:
+
+Click **Browse** and select the project folder:
+
+```text
 C:\Users\Ahmet Furkan\Desktop\hospital-appointment-system-java
+```
 
-5. Select pom.xml
+### 5. Select `pom.xml`
 
-Eclipse will automatically find the pom.xml file:
+Eclipse will automatically find the `pom.xml` file.
 
+You should see:
+
+```text
 /pom.xml - hospital-reservation-system-java
+```
 
-Click Finish.
+Click **Finish**.
 
-6. Maven Update (Automatic)
+### 6. Maven Update
 
 Eclipse will automatically:
 
-✅ Download Maven dependencies
-
-✅ Add JUnit
-
-✅ Build the project
+- ✅ Download Maven dependencies
+- ✅ Add JUnit
+- ✅ Build the project
 
 Wait for the progress bar in the bottom-right corner.
 
-This process may take 2–3 minutes. An internet connection is required.
+You may see:
 
-🧪 Step 3: Run the Tests
+```text
+Building workspace... (XX%)
+```
 
-Method 1: Run a Single Test File
+This process may take **2–3 minutes**.
 
-In Package Explorer (left panel), open:
-hospital-reservation-system-java → src/test/java → mertguler.Person → PersonTest.java
+An internet connection is required.
 
-Right-click PersonTest.java.
+---
 
-Select Run As → JUnit Test.
+## 🧪 Step 3: Run the Tests
 
-The JUnit panel will open at the bottom.
+### Method 1: Run a Single Test File
+
+1. Open **Package Explorer** on the left side.
+
+2. Open the following path:
+
+```text
+hospital-reservation-system-java
+└── src
+    └── test
+        └── java
+            └── mertguler.Person
+                └── PersonTest.java
+```
+
+3. Right-click **PersonTest.java**.
+
+4. Select:
+
+**Run As → JUnit Test**
+
+5. The **JUnit** panel will open at the bottom.
 
 Example result:
 
+```text
 PersonTest                     15/15
+
   testPersonCreation            12ms
   testGetName                    3ms
   testSetName                    2ms
   testEquals_SameObject          2ms
 
-Runs: 15/15   Errors: 0   Failures: 0
+Runs: 15/15
+Errors: 0
+Failures: 0
+```
 
-Method 2: Run All Tests
+---
 
-Right-click the src/test/java folder.
+### Method 2: Run All Tests
 
-Select Run As → JUnit Test.
+1. Right-click the:
 
-All 12 test classes (approximately 325 tests) will run.
+```text
+src/test/java
+```
+
+folder.
+
+2. Select:
+
+**Run As → JUnit Test**
+
+3. All 12 test classes will run.
+
+Approximately **325 tests** will be executed.
 
 Example:
 
+```text
 mertguler.Person.PersonTest        15 passed
 mertguler.Person.PatientTest       20 passed
 mertguler.Person.DoctorTest        25 passed
 mertguler.Hospital.HospitalTest    35 passed
 ... (more tests)
 
-Total: 325 tests - 8.5 seconds
+Total: 325 tests
+Time: 8.5 seconds
+```
 
-🎨 Visual Guide
+---
 
-The Eclipse screen will show the project in Package Explorer, the test file in the editor, and the results in the JUnit panel.
+## 🎨 Visual Guide
 
-🔧 Troubleshooting
+The Eclipse screen will normally contain:
 
-Problem 1: Maven Dependencies Are Not Downloading
+- **Package Explorer** on the left
+- The Java test file in the center
+- **JUnit results** at the bottom
 
-Solution:
+Example structure:
 
-Right-click the project.
+```text
+Eclipse IDE
+│
+├── Package Explorer
+│   └── hospital-reservation-system-java
+│       └── src
+│           └── test
+│               └── java
+│
+├── Test File
+│   └── PersonTest.java
+│
+└── JUnit Panel
+    ├── Tests
+    ├── Runs
+    ├── Errors
+    └── Failures
+```
 
-Select Maven → Update Project.
+---
 
-Check Force Update of Snapshots/Releases.
+# 🔧 Troubleshooting
 
-Click OK.
+## Problem 1: Maven Dependencies Are Not Downloading
 
-Problem 2: JUnit Cannot Be Found
+### Solution
 
-Solution:
+1. Right-click the project.
+2. Select:
 
-Open the pom.xml file.
+   **Maven → Update Project**
 
-Right-click anywhere in the file.
+3. Check:
 
-Select Maven → Add Dependency.
+   **Force Update of Snapshots/Releases**
 
-Search for junit.
+4. Click **OK**.
 
-Select junit:junit:4.12.
+---
 
-Click OK.
+## Problem 2: JUnit Cannot Be Found
 
-Problem 3: The Test Folder Is Not Recognized
+### Solution
 
-Solution:
+1. Open the `pom.xml` file.
+2. Right-click inside the file.
+3. Select:
 
-Right-click the src/test/java folder.
+   **Maven → Add Dependency**
 
-Select Build Path → Use as Source Folder.
+4. Search for:
 
-Problem 4: "Cannot Resolve Symbol" Errors
+```text
+junit
+```
 
-Solution:
+5. Select:
 
-Go to Project → Clean.
+```text
+junit:junit:4.12
+```
 
-Select Clean all projects.
+6. Click **OK**.
 
-Click OK.
+---
 
-Eclipse will automatically rebuild the project.
+## Problem 3: The Test Folder Is Not Recognized
 
-Problem 5: Java 21 Cannot Be Found
+### Solution
 
-Solution:
+1. Right-click:
 
-Right-click the project.
+```text
+src/test/java
+```
 
-Select Properties.
+2. Select:
 
-Select Java Build Path from the left menu.
+**Build Path → Use as Source Folder**
 
-Click the Libraries tab.
+---
 
-Select JRE System Library → Edit.
+## Problem 4: "Cannot Resolve Symbol" Errors
 
-Click Installed JREs.
+### Solution
 
-Click Add and specify the path to JDK 21.
+1. Go to:
 
-⌨️ Eclipse Keyboard Shortcuts
+**Project → Clean**
 
-Alt + Shift + X, T → Run JUnit Test
+2. Select:
 
-Ctrl + F11 → Run the last test again
+**Clean all projects**
 
-F11 → Run in Debug mode
+3. Click **OK**.
 
-Ctrl + Shift + T → Search for a test file
+4. Eclipse will automatically rebuild the project.
 
-📊 Success Indicators
+---
+
+## Problem 5: Java 21 Cannot Be Found
+
+### Solution
+
+1. Right-click the project.
+2. Select **Properties**.
+3. Select **Java Build Path**.
+4. Open the **Libraries** tab.
+5. Select:
+
+   **JRE System Library**
+
+6. Click **Edit**.
+7. Click **Installed JREs**.
+8. Click **Add**.
+9. Select the path to **JDK 21**.
+
+---
+
+# ⌨️ Eclipse Keyboard Shortcuts
+
+| Shortcut | Function |
+|---|---|
+| `Alt + Shift + X, T` | Run JUnit Test |
+| `Ctrl + F11` | Run the last test again |
+| `F11` | Run in Debug mode |
+| `Ctrl + Shift + T` | Search for a test file |
+
+---
+
+# 📊 Success Indicators
 
 If the tests run successfully, you should see:
 
+```text
 ✅ Green progress bar
-✅ "Runs: X/X"
-✅ "Errors: 0"
-✅ "Failures: 0"
-✅ A green check mark next to all tests
+✅ Runs: X/X
+✅ Errors: 0
+✅ Failures: 0
+✅ Green check marks beside the tests
+```
 
-If there is an error:
+If there is an error, you may see:
 
+```text
 ❌ Red progress bar
-❌ "Failures: X"
-❌ A red X next to some tests
+❌ Failures: X
+❌ Red X beside some tests
+```
 
-🎯 Understanding Test Results
+---
 
-Successful Test
+# 🎯 Understanding Test Results
 
+## Successful Test
+
+Example:
+
+```text
 ✅ testPersonCreation    12ms
+```
 
-Green check mark = Test passed
+Meaning:
 
-12ms = Test execution time
+- ✅ Green check mark = Test passed
+- `12ms` = Test execution time
 
-Failed Test
+---
 
+## Failed Test
+
+Example:
+
+```text
 ❌ testPersonCreation    Failed
-   Expected: <Person> but was: <null>
-   at PersonTest.java:25
 
-Red X = Test failed
+Expected: <Person>
+But was: <null>
 
-The error message shows what was expected and what actually happened.
+at PersonTest.java:25
+```
 
-🚀 Advanced: Maven Terminal
+Meaning:
 
-You can also run Maven commands in Eclipse:
+- ❌ Red X = Test failed
+- The error message tells you what was expected
+- It also shows what the program actually returned
 
-Right-click the project.
+---
 
-Select Run As → Maven build...
+# 🚀 Advanced: Maven Terminal
 
-Enter the goal:
+You can also run Maven commands directly from Eclipse.
+
+### Steps
+
+1. Right-click the project.
+2. Select:
+
+   **Run As → Maven build...**
+
+3. Enter the goal:
+
+```text
 test
+```
 
-Click Run.
+4. Click **Run**.
 
-You will see Maven output in the Console:
+The Console will show output similar to:
 
-[INFO] T E S T S
+```text
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+
 [INFO] Running mertguler.Person.PersonTest
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] Tests run: 15
+[INFO] Failures: 0
+[INFO] Errors: 0
+[INFO] Skipped: 0
+
 [INFO] BUILD SUCCESS
+```
 
-💡 Tips
+---
 
-✅ Automatic Test Execution
+# 💡 Tips
 
-You can configure Eclipse to perform actions whenever you save a file:
+## ✅ Automatic Test Execution
 
-Go to Window → Preferences.
+You can configure Eclipse to perform actions whenever you save a file.
 
-Select Java → Editor → Save Actions.
+### Steps
 
-Check Perform the selected actions on save.
+1. Go to:
 
-Select Additional actions → Configure.
+   **Window → Preferences**
 
-Choose the actions you want to perform.
+2. Select:
 
-✅ View Code Coverage
+   **Java → Editor → Save Actions**
+
+3. Check:
+
+   **Perform the selected actions on save**
+
+4. Select:
+
+   **Additional actions → Configure**
+
+5. Choose the actions you want.
+
+---
+
+## ✅ View Code Coverage
 
 To view test coverage:
 
-Right-click the test file.
+1. Right-click the test file.
+2. Select:
 
-Select Coverage As → JUnit Test.
+   **Coverage As → JUnit Test**
 
-Green = tested code, Red = untested code.
+3. The colors indicate coverage:
 
-✅ Create a Test Quickly
+- 🟢 Green = Tested code
+- 🔴 Red = Untested code
+
+---
+
+## ✅ Create a Test Quickly
 
 To create a new test:
 
-Open the class you want to test.
+1. Open the class you want to test.
+2. Press:
 
-Press Ctrl + N → select JUnit Test Case.
+   `Ctrl + N`
 
-Eclipse will automatically create a test template.
+3. Select:
 
-🎓 Eclipse vs IntelliJ
+   **JUnit Test Case**
 
-Feature
+4. Eclipse will create a test template automatically.
 
-Eclipse
+---
 
-IntelliJ IDEA
+# 🎓 Eclipse vs IntelliJ IDEA
 
-Free
+| Feature | Eclipse | IntelliJ IDEA |
+|---|---|---|
+| Free | Completely free | Community Edition available |
+| Maven | Manual update | Automatic |
+| Memory Usage | Lightweight | Slightly heavier |
+| Ease of Use | Moderate | Very easy |
+| Setup Time | 3–5 minutes | 2 minutes |
 
-Completely free
+**Both Eclipse and IntelliJ IDEA can run the project tests.**
 
-Community Edition available
+---
 
-Maven
+# 📝 Checklist: Are the Tests Successful?
 
-Manual update
+Before considering the testing setup complete, make sure:
 
-Automatic
+- [ ] The project was imported as a Maven project.
+- [ ] Maven Update was completed.
+- [ ] The `pom.xml` file exists and opens correctly.
+- [ ] The `src/test/java` folder is visible.
+- [ ] The **Run As → JUnit Test** option is available.
+- [ ] The JUnit panel opens.
+- [ ] A green progress bar is displayed.
+- [ ] All tests pass.
+- [ ] Errors = 0
+- [ ] Failures = 0
 
-Memory usage
+If all of these are completed, the tests have been successfully run in Eclipse.
 
-Lightweight
+---
 
-Slightly heavier
+# 📞 Need Help?
 
-Ease of use
+## Common Errors
 
-Moderate
+### "Build path is incomplete"
 
-Very easy
+Run:
 
-Setup
+**Maven → Update Project**
 
-3–5 minutes
+### "JUnit not found"
 
-2 minutes
+Check the `pom.xml` file and run:
 
-Both IDEs can run your tests.
+**Maven → Update Project**
 
-📝 Checklist: Are the Tests Successful in Eclipse?
+### "Tests not running"
 
-I imported the project as a Maven project.
+Go to:
 
-I updated Maven (Right-click → Maven → Update Project).
+**src/test/java → Build Path → Use as Source Folder**
 
-The pom.xml file exists and opens correctly.
+### "Java version mismatch"
 
-The src/test/java folder is visible.
+Go to:
 
-Run As → JUnit Test is available for the test file.
+**Properties → Java Compiler → Select Java 21**
 
-The JUnit panel opens when I run a test.
+---
 
-I see a green progress bar.
+# ✅ Done!
 
-All tests pass (Errors: 0, Failures: 0).
+If the tests run successfully, you have:
 
-If all of these are checked, you have successfully run the tests.
+- ✅ Opened the Maven project in Eclipse
+- ✅ Run the JUnit tests
+- ✅ Understood the test results
+- ✅ Used Java development tools successfully
 
-📞 Need Help?
+## 🎉 Congratulations!
 
-Common Errors
+Your tests are running successfully in Eclipse!
 
-"Build path is incomplete" → Run Maven Update.
+---
 
-"JUnit not found" → Check pom.xml and run Maven Update.
+**Note:** Eclipse is one of the oldest and widely used IDEs for Java development.
 
-"Tests not running" → Go to src/test/java → Build Path → Use as Source Folder.
-
-"Java version mismatch" → Go to Properties → Java Compiler → Select 21.
-
-✅ Done!
-
-If the tests ran successfully, you have:
-
-✅ Opened the Maven project in Eclipse.
-
-✅ Run the JUnit tests.
-
-✅ Understood the test results.
-
-✅ Used modern Java development tools.
-
-Congratulations! Your tests are running successfully in Eclipse! 🎉
-
-Note: Eclipse is one of the oldest and most reliable IDEs for Java development. Many professional developers use Eclipse.
-
-Happy testing! 🚀
+**Happy Testing! 🚀**
