@@ -370,7 +370,3 @@ Possible improvements for the system include:
 **Nitin**
 
 Java Project — Hospital Appointment System
-
-## 📄 License
-
-This project is distributed under the MIT License. See the `LICENSE` file for more information.
