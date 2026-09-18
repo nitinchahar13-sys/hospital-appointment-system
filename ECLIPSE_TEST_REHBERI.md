@@ -1,412 +1,376 @@
-# ⚡ Eclipse ile Test Çalıştırma Rehberi
+Guide to Running Tests with Eclipse
 
-## 🎯 Eclipse'de Testler Nasıl Çalıştırılır?
+🎯 How to Run Tests in Eclipse
 
-Eclipse'de testlerinizi çalıştırmak için 3 kolay adım!
+There are 3 easy steps to run your tests in Eclipse!
 
----
+📥 Step 1: Prepare Eclipse
 
-## 📥 **Adım 1: Eclipse'i Hazırlayın**
+If Eclipse Is Not Installed:
 
-### Eclipse Yüklü Değilse:
+Download Eclipse IDE for Java Developers:
+https://www.eclipse.org/downloads/
 
-1. **Eclipse IDE for Java Developers** indirin:
-   ```
-   https://www.eclipse.org/downloads/
-   ```
+Click the "Download" button.
 
-2. **"Download" butonuna tıklayın**
+Select your operating system (Windows x64).
 
-3. İşletim sisteminizi seçin (Windows x64)
+Run the Eclipse Installer:
 
-4. Eclipse Installer'ı çalıştırın:
-   - **"Eclipse IDE for Java Developers"** seçin
-   - Kurulum klasörünü seçin
-   - "Install" butonuna tıklayın
+Select "Eclipse IDE for Java Developers"
 
----
+Choose the installation folder.
 
-## 📂 **Adım 2: Projeyi İçe Aktarın**
+Click "Install"
 
-### 1. Eclipse'i Başlatın
+📂 Step 2: Import the Project
 
-### 2. Workspace Seçin
-- Varsayılan workspace'i kullanabilirsiniz
-- Veya: `C:\Users\Ahmet Furkan\eclipse-workspace`
+1. Start Eclipse
 
-### 3. Maven Projesini İçe Aktarın
+Open Eclipse IDE.
 
-**File → Import**
+2. Select a Workspace
 
-```
-┌─────────────────────────────────────┐
-│ Select an import wizard:            │
-│                                     │
-│ 🔍 Type filter text                 │
-│                                     │
-│ ▼ Maven                             │
-│   ► Existing Maven Projects  ◄─── BUNU SEÇİN
-│   ► Check out Maven Projects...    │
-│                                     │
-│          [Cancel]  [Next >]         │
-└─────────────────────────────────────┘
-```
+You can use the default workspace.
 
-### 4. Proje Klasörünü Seçin
+Or use a workspace such as:
+C:\Users\Ahmet Furkan\eclipse-workspace
 
-**Next > butonuna tıkladıktan sonra:**
+3. Import the Maven Project
 
-```
-Root Directory: [Browse...]
-```
+Go to File → Import.
 
-**Browse** butonuna tıklayın ve şu klasörü seçin:
-```
+Select Maven → Existing Maven Projects, then click Next.
+
+4. Select the Project Folder
+
+After clicking Next, click Browse and select the project folder:
+
 C:\Users\Ahmet Furkan\Desktop\hospital-appointment-system-java
-```
 
-### 5. pom.xml'i Seçin
+5. Select pom.xml
 
-Eclipse otomatik olarak `pom.xml` dosyasını bulacak:
+Eclipse will automatically find the pom.xml file:
 
-```
-☑ /pom.xml - hospital-reservation-system-java
-```
+/pom.xml - hospital-reservation-system-java
 
-**Finish** butonuna tıklayın!
+Click Finish.
 
-### 6. Maven Update (Otomatik)
+6. Maven Update (Automatic)
 
-Eclipse otomatik olarak:
-- ✅ Maven dependency'lerini indirecek
-- ✅ JUnit'i ekleyecek
-- ✅ Projeyi build edecek
+Eclipse will automatically:
 
-⏳ **Bekleyin:** Sağ altta progress bar göreceksiniz
-```
-"Building workspace... (XX%)"
-```
+✅ Download Maven dependencies
 
-Bu işlem **2-3 dakika** sürebilir. İnternet bağlantısı gerekli!
+✅ Add JUnit
 
----
+✅ Build the project
 
-## 🧪 **Adım 3: Test Çalıştırın**
+Wait for the progress bar in the bottom-right corner.
 
-### Yöntem 1: Tek Bir Test Dosyası
+This process may take 2–3 minutes. An internet connection is required.
 
-1. **Package Explorer'da** (sol panel) şu yolu açın:
-   ```
-   hospital-reservation-system-java
-   └── src/test/java
-       └── mertguler.Person
-           └── PersonTest.java
-   ```
+🧪 Step 3: Run the Tests
 
-2. **PersonTest.java** dosyasına **SAĞ TIK**
+Method 1: Run a Single Test File
 
-3. **"Run As" → "JUnit Test"** seçin
+In Package Explorer (left panel), open:
+hospital-reservation-system-java → src/test/java → mertguler.Person → PersonTest.java
 
-4. 🎉 **Sonuç:** Alt tarafta JUnit paneli açılacak!
+Right-click PersonTest.java.
 
-```
-┌─────────────────────────────────────────┐
-│ JUnit                            [X] [_] │
-├─────────────────────────────────────────┤
-│ ✅ PersonTest                     15/15  │
-│   ✅ testPersonCreation            12ms  │
-│   ✅ testGetName                    3ms  │
-│   ✅ testSetName                    2ms  │
-│   ✅ testEquals_SameObject          2ms  │
-│   ... (11 daha)                          │
-│                                          │
-│ Runs: 15/15   Errors: 0   Failures: 0   │
-│ ██████████████████████████████  (100%)   │
-└─────────────────────────────────────────┘
-```
+Select Run As → JUnit Test.
 
-### Yöntem 2: Tüm Testleri Çalıştırın
+The JUnit panel will open at the bottom.
 
-1. **src/test/java** klasörüne **SAĞ TIK**
+Example result:
 
-2. **"Run As" → "JUnit Test"** seçin
+PersonTest                     15/15
+  testPersonCreation            12ms
+  testGetName                    3ms
+  testSetName                    2ms
+  testEquals_SameObject          2ms
 
-3. Tüm 12 test sınıfı (~325 test) çalışacak!
+Runs: 15/15   Errors: 0   Failures: 0
 
-```
-✅ mertguler.Person.PersonTest        15 passed
-✅ mertguler.Person.PatientTest       20 passed
-✅ mertguler.Person.DoctorTest        25 passed
-✅ mertguler.Hospital.HospitalTest    35 passed
-✅ mertguler.Hospital.SectionTest     30 passed
-... (devamı)
+Method 2: Run All Tests
+
+Right-click the src/test/java folder.
+
+Select Run As → JUnit Test.
+
+All 12 test classes (approximately 325 tests) will run.
+
+Example:
+
+mertguler.Person.PersonTest        15 passed
+mertguler.Person.PatientTest       20 passed
+mertguler.Person.DoctorTest        25 passed
+mertguler.Hospital.HospitalTest    35 passed
+... (more tests)
 
 Total: 325 tests - 8.5 seconds
-```
 
----
+🎨 Visual Guide
 
-## 🎨 **Görsel Rehber**
+The Eclipse screen will show the project in Package Explorer, the test file in the editor, and the results in the JUnit panel.
 
-### Eclipse Ekranı Şöyle Görünecek:
+🔧 Troubleshooting
 
-```
-┌────────────────────────────────────────────────────────┐
-│ Eclipse IDE                             [- □ X]        │
-├─────────────┬──────────────────────────────────────────┤
-│ Package     │ PersonTest.java                  [Save]  │
-│ Explorer    │                                           │
-│             │ package mertguler.Person;                 │
-│ ▼ hospital  │                                           │
-│   ▼ src     │ import org.junit.Test;                    │
-│     ▼ test  │ import static org.junit.Assert.*;         │
-│       ▼ java│                                           │
-│    ▼mertguler│ public class PersonTest {                │
-│      ▶ CRS   │                                          │
-│      ▶ Hospital│    @Test                               │
-│      ▼ Person│    public void testPersonCreation() {   │
-│        PersonTest.java ◄─ SAĞ TIK → Run As → JUnit    │
-│        PatientTest.java│        Person p = new Person(...);│
-│        DoctorTest.java│        assertNotNull(p);         │
-│      ▶ Exceptions│    }                                  │
-│             │ }                                          │
-├─────────────┴──────────────────────────────────────────┤
-│ JUnit                                            [X][_] │
-│ ✅ PersonTest                              15/15 (150ms)│
-│   ✅ testPersonCreation                          12ms   │
-│   ✅ testGetName                                  3ms   │
-│   ✅ testSetName                                  2ms   │
-│                                                         │
-│ Runs: 15/15  ██████████████████████  Errors: 0  Fail: 0│
-└─────────────────────────────────────────────────────────┘
-```
+Problem 1: Maven Dependencies Are Not Downloading
 
----
+Solution:
 
-## 🔧 **Sorun Giderme**
+Right-click the project.
 
-### Problem 1: Maven dependency'ler inmiyor
+Select Maven → Update Project.
 
-**Çözüm:**
-1. Projeye **SAĞ TIK**
-2. **"Maven" → "Update Project"** seçin
-3. ☑ **"Force Update of Snapshots/Releases"** işaretleyin
-4. **OK** butonuna tıklayın
+Check Force Update of Snapshots/Releases.
 
-```
-┌─────────────────────────────────────┐
-│ Update Maven Project                │
-│                                     │
-│ ☑ hospital-reservation-system-java │
-│                                     │
-│ ☑ Force Update of Snapshots/Releases │
-│ ☐ Update project configuration      │
-│ ☐ Refresh workspace resources       │
-│ ☐ Clean projects                    │
-│                                     │
-│          [Cancel]  [OK]              │
-└─────────────────────────────────────┘
-```
+Click OK.
 
-### Problem 2: JUnit bulunamıyor
+Problem 2: JUnit Cannot Be Found
 
-**Çözüm:**
-1. `pom.xml` dosyasını açın
-2. Dosyada herhangi bir yere **SAĞ TIK**
-3. **"Maven" → "Add Dependency"** seçin
-4. Arama: `junit`
-5. `junit:junit:4.12` seçin
-6. **OK** tıklayın
+Solution:
 
-### Problem 3: Test klasörü tanınmıyor
+Open the pom.xml file.
 
-**Çözüm:**
-1. `src/test/java` klasörüne **SAĞ TIK**
-2. **"Build Path" → "Use as Source Folder"** seçin
+Right-click anywhere in the file.
 
-### Problem 4: "Cannot resolve symbol" hataları
+Select Maven → Add Dependency.
 
-**Çözüm:**
-1. **"Project" → "Clean"** menüsüne tıklayın
-2. ☑ **"Clean all projects"** seçin
-3. **OK** tıklayın
-4. Eclipse otomatik rebuild edecek
+Search for junit.
 
-### Problem 5: Java 21 bulunamıyor
+Select junit:junit:4.12.
 
-**Çözüm:**
-1. Projeye **SAĞ TIK**
-2. **"Properties"** seçin
-3. Sol menüden **"Java Build Path"** seçin
-4. **"Libraries"** tab'ına tıklayın
-5. **"JRE System Library"** seçin → **Edit** butonuna tıklayın
-6. **"Installed JREs"** butonuna tıklayın
-7. **"Add"** → JDK 21 yolunu gösterin
+Click OK.
 
----
+Problem 3: The Test Folder Is Not Recognized
 
-## ⌨️ **Klavye Kısayolları (Eclipse)**
+Solution:
 
-- `Alt + Shift + X, T` → JUnit Test çalıştır
-- `Ctrl + F11` → Son testi tekrar çalıştır
-- `F11` → Debug mode ile çalıştır
-- `Ctrl + Shift + T` → Test dosyası ara
+Right-click the src/test/java folder.
 
----
+Select Build Path → Use as Source Folder.
 
-## 📊 **Başarı Göstergeleri**
+Problem 4: "Cannot Resolve Symbol" Errors
 
-Testler başarıyla çalışıyorsa:
+Solution:
 
-```
-✅ Yeşil bar (progress bar)
-✅ "Runs: X/X" (hepsi çalıştı)
+Go to Project → Clean.
+
+Select Clean all projects.
+
+Click OK.
+
+Eclipse will automatically rebuild the project.
+
+Problem 5: Java 21 Cannot Be Found
+
+Solution:
+
+Right-click the project.
+
+Select Properties.
+
+Select Java Build Path from the left menu.
+
+Click the Libraries tab.
+
+Select JRE System Library → Edit.
+
+Click Installed JREs.
+
+Click Add and specify the path to JDK 21.
+
+⌨️ Eclipse Keyboard Shortcuts
+
+Alt + Shift + X, T → Run JUnit Test
+
+Ctrl + F11 → Run the last test again
+
+F11 → Run in Debug mode
+
+Ctrl + Shift + T → Search for a test file
+
+📊 Success Indicators
+
+If the tests run successfully, you should see:
+
+✅ Green progress bar
+✅ "Runs: X/X"
 ✅ "Errors: 0"
 ✅ "Failures: 0"
-✅ Tüm testlerin yanında yeşil ✓ işareti
-```
+✅ A green check mark next to all tests
 
-Hata varsa:
-```
-❌ Kırmızı bar
-❌ "Failures: X" (sıfırdan fazla)
-❌ Bazı testlerin yanında kırmızı X
-```
+If there is an error:
 
----
+❌ Red progress bar
+❌ "Failures: X"
+❌ A red X next to some tests
 
-## 🎯 **Test Sonuçlarını Anlama**
+🎯 Understanding Test Results
 
-### Başarılı Test:
-```
+Successful Test
+
 ✅ testPersonCreation    12ms
-```
-- Yeşil check mark = Test geçti
-- 12ms = Test süresi
 
-### Başarısız Test:
-```
+Green check mark = Test passed
+
+12ms = Test execution time
+
+Failed Test
+
 ❌ testPersonCreation    Failed
    Expected: <Person> but was: <null>
    at PersonTest.java:25
-```
-- Kırmızı X = Test başarısız
-- Hata mesajı gösterir ne beklediğini
 
----
+Red X = Test failed
 
-## 🚀 **İleri Seviye: Maven Terminal**
+The error message shows what was expected and what actually happened.
 
-Eclipse'de Maven komutları da çalıştırabilirsiniz:
+🚀 Advanced: Maven Terminal
 
-1. Projeye **SAĞ TIK**
-2. **"Run As" → "Maven build..."** seçin
-3. Goals: `test`
-4. **Run** butonuna tıklayın
+You can also run Maven commands in Eclipse:
 
-Console'da Maven çıktısını göreceksiniz:
-```
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
+Right-click the project.
+
+Select Run As → Maven build...
+
+Enter the goal:
+test
+
+Click Run.
+
+You will see Maven output in the Console:
+
+[INFO] T E S T S
 [INFO] Running mertguler.Person.PersonTest
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
-...
 [INFO] BUILD SUCCESS
-```
 
----
+💡 Tips
 
-## 💡 **İpuçları**
+✅ Automatic Test Execution
 
-### ✅ **Otomatik Test Çalıştırma**
+You can configure Eclipse to perform actions whenever you save a file:
 
-Eclipse'de **"Save Actions"** ile her kaydettiğinizde otomatik test:
+Go to Window → Preferences.
 
-1. **"Window" → "Preferences"**
-2. **"Java" → "Editor" → "Save Actions"**
-3. ☑ **"Perform the selected actions on save"** işaretleyin
-4. **"Additional actions"** → **Configure**
-5. İstediğiniz aksiyonları seçin
+Select Java → Editor → Save Actions.
 
-### ✅ **Code Coverage Görüntüleme**
+Check Perform the selected actions on save.
 
-Test coverage'i görmek için:
+Select Additional actions → Configure.
 
-1. Test dosyasına **SAĞ TIK**
-2. **"Coverage As" → "JUnit Test"** seçin
-3. Yeşil = test edildi, Kırmızı = test edilmedi
+Choose the actions you want to perform.
 
-### ✅ **Hızlı Test Oluşturma**
+✅ View Code Coverage
 
-Yeni test eklemek için:
-1. Test edilecek sınıfın içindeyken
-2. **Ctrl + N** → **"JUnit Test Case"**
-3. Eclipse otomatik test template oluşturur
+To view test coverage:
 
----
+Right-click the test file.
 
-## 🎓 **Eclipse vs IntelliJ**
+Select Coverage As → JUnit Test.
 
-| Özellik | Eclipse | IntelliJ IDEA |
-|---------|---------|---------------|
-| Ücretsiz | ✅ Tamamen | ✅ Community |
-| Maven | ✅ Manuel update | ✅ Otomatik |
-| Hafıza | Hafif | Biraz ağır |
-| Kullanım | Orta | Çok kolay |
-| Setup | 3-5 dk | 2 dk |
+Green = tested code, Red = untested code.
 
-**Her ikisi de testlerinizi çalıştırır!** 🎉
+✅ Create a Test Quickly
 
----
+To create a new test:
 
-## 📝 **Checklist: Eclipse'de Test Başarılı mı?**
+Open the class you want to test.
 
-- [ ] Projeyi Maven projesi olarak import ettim
-- [ ] Maven update yaptım (sağ tık → Maven → Update Project)
-- [ ] pom.xml dosyası var ve açılıyor
-- [ ] src/test/java klasörü görünüyor
-- [ ] Test dosyasına sağ tık → Run As → JUnit Test seçeneği var
-- [ ] Test çalıştırınca JUnit paneli açılıyor
-- [ ] Yeşil bar görüyorum
-- [ ] Tüm testler geçiyor (Errors: 0, Failures: 0)
+Press Ctrl + N → select JUnit Test Case.
 
-**Tümü ✅ ise başardınız!** 🎊
+Eclipse will automatically create a test template.
 
----
+🎓 Eclipse vs IntelliJ
 
-## 📞 **Yardım Lazım mı?**
+Feature
 
-### Sık Karşılaşılan Hatalar:
+Eclipse
 
-**"Build path is incomplete"**
-→ Maven Update yapın
+IntelliJ IDEA
 
-**"JUnit not found"**
-→ pom.xml kontrolü + Maven Update
+Free
 
-**"Tests not running"**
-→ src/test/java → Build Path → Use as Source Folder
+Completely free
 
-**"Java version mismatch"**
-→ Properties → Java Compiler → 21 seçin
+Community Edition available
 
----
+Maven
 
-## ✅ **Başardınız mı?**
+Manual update
 
-Test çalıştıysa artık:
-- ✅ Eclipse'de Maven projesi açtınız
-- ✅ JUnit testleri çalıştırdınız
-- ✅ Test sonuçlarını yorumladınız
-- ✅ Modern Java geliştirme yaptınız
+Automatic
 
-**Tebrikler! Eclipse'de testler çalışıyor! 🎉**
+Memory usage
 
----
+Lightweight
 
-**Not:** Eclipse, Java geliştirme için en eski ve güvenilir IDE'lerden biridir.
-Birçok profesyonel geliştirici Eclipse kullanır.
+Slightly heavier
 
-**İyi testler! 🚀**
+Ease of use
 
+Moderate
+
+Very easy
+
+Setup
+
+3–5 minutes
+
+2 minutes
+
+Both IDEs can run your tests.
+
+📝 Checklist: Are the Tests Successful in Eclipse?
+
+I imported the project as a Maven project.
+
+I updated Maven (Right-click → Maven → Update Project).
+
+The pom.xml file exists and opens correctly.
+
+The src/test/java folder is visible.
+
+Run As → JUnit Test is available for the test file.
+
+The JUnit panel opens when I run a test.
+
+I see a green progress bar.
+
+All tests pass (Errors: 0, Failures: 0).
+
+If all of these are checked, you have successfully run the tests.
+
+📞 Need Help?
+
+Common Errors
+
+"Build path is incomplete" → Run Maven Update.
+
+"JUnit not found" → Check pom.xml and run Maven Update.
+
+"Tests not running" → Go to src/test/java → Build Path → Use as Source Folder.
+
+"Java version mismatch" → Go to Properties → Java Compiler → Select 21.
+
+✅ Done!
+
+If the tests ran successfully, you have:
+
+✅ Opened the Maven project in Eclipse.
+
+✅ Run the JUnit tests.
+
+✅ Understood the test results.
+
+✅ Used modern Java development tools.
+
+Congratulations! Your tests are running successfully in Eclipse! 🎉
+
+Note: Eclipse is one of the oldest and most reliable IDEs for Java development. Many professional developers use Eclipse.
+
+Happy testing! 🚀
